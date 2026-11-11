@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Palette taken from pornhub.com/www-static/css/generated-header.css, not guessed:
+     body{background:#000;color:#fff}
+     #header #headerWrapper{background-color:#0e0e0e}
+     #header{border-bottom:1px solid #151515}
+     primary button + active nav: background:#f90; color:#000
+   Note the page is BLACKER than the header bar — getting this backwards is what
+   made it read "not Pornhub". */
+@theme {
+  --color-crust: #0e0e0e; /* header / footer bar */
+  --color-mantle: #000000; /* page background */
+  --color-base: #1f1f1f; /* inputs, cards behind artwork */
+  --color-surface0: #2f2f2f; /* borders / hairlines */
+  --color-surface1: #363636;
+  --color-overlay0: #969696; /* muted text */
+  --color-text: #ffffff;
+  --color-subtext0: #c6c6c6; /* secondary text */
+  --color-subtext1: #d9d9d9;
+  --color-lavender: #c6c6c6;
+  --color-mauve: #f90; /* accent: buttons, links, active nav. On accent: --color-crust */
+  --color-sapphire: #74c7ec;
+  --color-softred: #f38ba8;
+
+  --font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  background: var(--color-crust);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-mantle);
+  background-attachment: fixed;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease;
+}
+
+/* Subtitle cue: no box, smaller, fixed 15% from bottom, no jumping. */
+video::cue {
+  background: transparent !important;
+  background-color: transparent !important;
+  font-size: 0.82em;
+  line-height: 1.3;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.6);
+  /* keep cue at fixed line so short/long cues don't jump */
+  white-space: pre-wrap;
+}
+video::-webkit-media-text-track-display,
+video::-webkit-media-text-track-container {
+  bottom: 10% !important;
+  top: auto !important;
+  transform: none !important;
+}

@@ -1,0 +1,40 @@
+# secrets / local env
+.env
+.env.local
+
+# telegram session & credentials
+*.session
+*.session-journal
+session/
+credentials/
+
+# sqlite databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+
+# temp uploads
+tmp/
+*.tmp
+*.part
+
+# build output
+bin/
+dist/
+# locally built binaries (repo root)
+/tglogin
+/webgo-server
+/webgo-seedadmin
+*.log
+
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
